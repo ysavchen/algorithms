@@ -15,7 +15,7 @@ public class BinarySearch {
         System.out.println(searchResult);
     }
 
-    private static int binarySearch(int[] list, int pickedNumber) {
+    public static int binarySearch(int[] list, int pickedNumber) {
         if (isEmpty(list)) {
             return NOT_FOUND;
         }
