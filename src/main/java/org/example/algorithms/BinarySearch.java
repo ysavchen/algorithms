@@ -1,19 +1,10 @@
 package org.example.algorithms;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 public class BinarySearch {
 
     private static final int NOT_FOUND = -1;
-
-    public static void main(String[] args) {
-        int[] list = {9, 14, 2, 5};
-        int existingPickedNumber = 9;
-        int nonExistingPickedNumber = 22;
-        int searchResult = binarySearch(list, nonExistingPickedNumber);
-        System.out.println(searchResult);
-    }
 
     public static int binarySearch(int[] list, int pickedNumber) {
         if (isEmpty(list)) {
@@ -35,6 +26,7 @@ public class BinarySearch {
             } else {
                 return midNumber;
             }
+            sleep();
         }
 
         return NOT_FOUND;
@@ -42,5 +34,13 @@ public class BinarySearch {
 
     private static boolean isEmpty(int[] list) {
         return list.length == 0;
+    }
+
+    private static void sleep() {
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 }
