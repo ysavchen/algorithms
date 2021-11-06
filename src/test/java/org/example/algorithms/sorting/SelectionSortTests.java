@@ -1,5 +1,6 @@
-package org.example.algorithms;
+package org.example.algorithms.sorting;
 
+import org.example.algorithms.sorting.SelectionSort;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
