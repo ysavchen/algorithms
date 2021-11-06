@@ -29,9 +29,9 @@ public class LinearSearchTests {
     @Test
     void searchTime() {
         int[] list = IntStream.iterate(1, i -> i + 1)
-                .limit(1000L)
+                .limit(100L)
                 .toArray();
-        int pickedNumber = 1000;
+        int pickedNumber = 100;
         long startMillis = System.currentTimeMillis();
         LinearSearch.linearSearch(list, pickedNumber);
         long endMillis = System.currentTimeMillis();
