@@ -13,21 +13,21 @@ public class QuickSort {
             return listCopy;
         }
 
-        int baseElementIndex = 1;
-        Integer base = listCopy.get(baseElementIndex);
-        listCopy.remove(baseElementIndex);
+        int pivotElementIndex = 1;
+        Integer pivot = listCopy.get(pivotElementIndex);
+        listCopy.remove(pivotElementIndex);
         List<Integer> less = sort(
                 listCopy.stream()
-                        .filter(element -> element <= base)
+                        .filter(element -> element <= pivot)
                         .toList()
         );
         List<Integer> more = sort(
                 listCopy.stream()
-                        .filter(element -> element > base)
+                        .filter(element -> element > pivot)
                         .toList()
         );
 
-        return Stream.of(less.stream(), Stream.of(base), more.stream())
+        return Stream.of(less.stream(), Stream.of(pivot), more.stream())
                 .flatMap(Function.identity())
                 .toList();
     }
