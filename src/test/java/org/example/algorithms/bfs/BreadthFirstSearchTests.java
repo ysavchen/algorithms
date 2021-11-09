@@ -20,8 +20,8 @@ public class BreadthFirstSearchTests {
         Map<String, List<String>> graph = Map.of(
                 startVertex, List.of("alice", "bob", vertexToFind)
         );
-        var fruitSellerSearch = new BreadthFirstSearch(graph);
-        var result = fruitSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
+        var vertexSearch = new BreadthFirstSearch(graph);
+        var result = vertexSearch.search(startVertex, name -> name.equals(vertexToFind));
         assertEquals(vertexToFind, result);
     }
 
@@ -34,8 +34,8 @@ public class BreadthFirstSearchTests {
                 "alice", List.of("emma"),
                 "claire", List.of(vertexToFind, "ann")
         );
-        var mangoSellerSearch = new BreadthFirstSearch(graph);
-        var result = mangoSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
+        var vertexSearch = new BreadthFirstSearch(graph);
+        var result = vertexSearch.search(startVertex, name -> name.equals(vertexToFind));
         assertEquals(vertexToFind, result);
     }
 
@@ -48,9 +48,9 @@ public class BreadthFirstSearchTests {
                 "alice", List.of("emma"),
                 "claire", List.of("you")
         );
-        var mangoSellerSearch = new BreadthFirstSearch(graph);
+        var vertexSearch = new BreadthFirstSearch(graph);
         assertTimeoutPreemptively(ofMillis(100), () -> {
-            String result = mangoSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
+            String result = vertexSearch.search(startVertex, name -> name.equals(vertexToFind));
             assertEquals(result, NOT_FOUND);
         });
     }
@@ -64,8 +64,8 @@ public class BreadthFirstSearchTests {
                 "alice", List.of("emma"),
                 "claire", List.of("ann")
         );
-        var mangoSellerSearch = new BreadthFirstSearch(graph);
-        var result = mangoSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
+        var vertexSearch = new BreadthFirstSearch(graph);
+        var result = vertexSearch.search(startVertex, name -> name.equals(vertexToFind));
         assertEquals(NOT_FOUND, result);
     }
 }
