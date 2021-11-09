@@ -16,32 +16,32 @@ public class BreadthFirstSearchTests {
 
     @Test
     void bfsFirstRoundVertices() {
-        String nodeToFind = "claire";
+        String vertexToFind = "claire";
         Map<String, List<String>> graph = Map.of(
-                startVertex, List.of("alice", "bob", nodeToFind)
+                startVertex, List.of("alice", "bob", vertexToFind)
         );
         var fruitSellerSearch = new BreadthFirstSearch(graph);
-        var result = fruitSellerSearch.search(startVertex, name -> name.equals(nodeToFind));
-        assertEquals(nodeToFind, result);
+        var result = fruitSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
+        assertEquals(vertexToFind, result);
     }
 
     @Test
     void bfsSecondRoundVertices() {
-        String nodeToFind = "thom";
+        String vertexToFind = "thom";
         Map<String, List<String>> graph = Map.of(
                 startVertex, List.of("alice", "bob", "claire"),
                 "bob", List.of("ria", "jonny"),
                 "alice", List.of("emma"),
-                "claire", List.of(nodeToFind, "ann")
+                "claire", List.of(vertexToFind, "ann")
         );
         var mangoSellerSearch = new BreadthFirstSearch(graph);
-        var result = mangoSellerSearch.search(startVertex, name -> name.equals(nodeToFind));
-        assertEquals(nodeToFind, result);
+        var result = mangoSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
+        assertEquals(vertexToFind, result);
     }
 
     @Test
     void bfsDuplicateVertices() {
-        String nodeToFind = "thom";
+        String vertexToFind = "thom";
         Map<String, List<String>> graph = Map.of(
                 startVertex, List.of("alice", "bob", "claire"),
                 "bob", List.of("ria", "jonny"),
@@ -50,14 +50,14 @@ public class BreadthFirstSearchTests {
         );
         var mangoSellerSearch = new BreadthFirstSearch(graph);
         assertTimeoutPreemptively(ofMillis(100), () -> {
-            String result = mangoSellerSearch.search(startVertex, name -> name.equals(nodeToFind));
+            String result = mangoSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
             assertEquals(result, NOT_FOUND);
         });
     }
 
     @Test
     void bfsNotFound() {
-        String nodeToFind = "daniel";
+        String vertexToFind = "daniel";
         Map<String, List<String>> graph = Map.of(
                 startVertex, List.of("alice", "bob", "claire"),
                 "bob", List.of("ria", "jonny"),
@@ -65,7 +65,7 @@ public class BreadthFirstSearchTests {
                 "claire", List.of("ann")
         );
         var mangoSellerSearch = new BreadthFirstSearch(graph);
-        var result = mangoSellerSearch.search(startVertex, name -> name.equals(nodeToFind));
+        var result = mangoSellerSearch.search(startVertex, name -> name.equals(vertexToFind));
         assertEquals(NOT_FOUND, result);
     }
 }
