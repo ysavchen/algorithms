@@ -1,5 +1,6 @@
 plugins {
     java
+    kotlin("jvm") version "2.1.10"
 }
 
 group = "com.example"
@@ -16,10 +17,15 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation(kotlin("test"))
 }
 
-tasks.withType<Test> {
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+}
+
+tasks.test {
     useJUnitPlatform()
 }
