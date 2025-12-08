@@ -1,4 +1,4 @@
-name: Build algorithms
+name: Build data-structures
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-      - name: Build algorithms
+      - name: Build data-structures
         run: ./gradlew build
 
   dependency-submission:
