@@ -1,1 +1,1 @@
-rootProject.name = "algorithms"
+rootProject.name = "data-structures"
