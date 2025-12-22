@@ -86,7 +86,7 @@ public class UnsortedArrayTests {
         assertEquals(1, array.getSize());
         assertEquals(1, array.getNumberOfElements());
 
-        array.removeElement(0);
+        array.removeByIndex(0);
         assertEquals(1, array.getSize());
         assertEquals(0, array.getNumberOfElements());
     }
@@ -94,6 +94,6 @@ public class UnsortedArrayTests {
     @Test
     void removeElementFromEmptyArray() {
         var array = new UnsortedArray<String>(5);
-        assertThrows(EmptyArrayException.class, () -> array.removeElement(0));
+        assertThrows(EmptyArrayException.class, () -> array.removeByIndex(0));
     }
 }

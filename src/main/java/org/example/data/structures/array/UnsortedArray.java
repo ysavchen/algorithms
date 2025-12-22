@@ -68,7 +68,7 @@ public class UnsortedArray<T> {
      * Т.к. массив не отсортирован, то можно поменять местами последний элемент с удаляемым.<br/>
      * И затем удалить последний элемент.
      */
-    public void removeElement(int index) {
+    public void removeByIndex(int index) {
         if (numberOfElements == 0) {
             throw new EmptyArrayException();
         } else if (index < 0 || index >= newElementIndex) {
