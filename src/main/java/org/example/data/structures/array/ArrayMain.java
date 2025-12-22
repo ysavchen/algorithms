@@ -4,9 +4,9 @@ public class ArrayMain {
 
     public static void main(String[] args) {
         var array = new UnsortedArray<String>(3);
-        array.setElement(0, "Anna");
-        array.setElement(1, "Maria");
-        array.setElement(2, "Elena");
+        array.addElement("Anna");
+        array.addElement("Maria");
+        array.addElement("Elena");
         System.out.println(array.getNumberOfElements());
     }
 }
