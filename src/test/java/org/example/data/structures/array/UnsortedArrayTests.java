@@ -16,6 +16,11 @@ public class UnsortedArrayTests {
     }
 
     @Test
+    void createNegativeArray() {
+        assertThrows(IllegalArgumentException.class, () -> new UnsortedArray<String>(-1));
+    }
+
+    @Test
     void getElement() {
         var array = new UnsortedArray<String>(1);
         var element = "Anna";
@@ -27,6 +32,36 @@ public class UnsortedArrayTests {
     void getNullElement() {
         var array = new UnsortedArray<String>(1);
         assertNull(array.getElement(0));
+    }
+
+    @Test
+    void getElementByNegativeIndex() {
+
+    }
+
+    @Test
+    void getElementOutOfBounds() {
+
+    }
+
+    @Test
+    void getMaxElement() {
+
+    }
+
+    @Test
+    void getMinElement() {
+
+    }
+
+    @Test
+    void findElement() {
+
+    }
+
+    @Test
+    void findNullElement() {
+
     }
 
     @Test
