@@ -1,9 +1,12 @@
 package org.example.data.structures.array;
 
-import java.util.Arrays;
+import org.example.data.structures.array.exception.ElementNotFoundException;
+import org.example.data.structures.array.exception.EmptyArrayException;
+import org.example.data.structures.array.exception.FullArrayException;
 
-// 1. findElement(T element)
-// 2. traverse()
+import java.util.Arrays;
+import java.util.function.Consumer;
+
 public class UnsortedArray<T> {
 
     private final T[] elementData;
@@ -26,22 +29,53 @@ public class UnsortedArray<T> {
         return elementData[index];
     }
 
+    public int findElement(T element) {
+        for (int index = 0; index < elementData.length; index++) {
+            var arrayElement = elementData[index];
+            if (elementData[index].equals(element)) {
+                return index;
+            }
+        }
+        throw new ElementNotFoundException();
+    }
+
+    public void traverse(Consumer<T> consumer) {
+        for (T element : elementData) {
+            consumer.accept(element);
+        }
+    }
+
     public void addElement(T element) {
+        if (elementData.length == numberOfElements) {
+            throw new FullArrayException();
+        }
         elementData[newElementIndex] = element;
         numberOfElements++;
         newElementIndex++;
     }
 
+    /**
+     * Поддерживается выравнивание массива по левому краю,
+     * и если требуется удалить элемент из середины массива, то такое удаление оставит пропуск посреди блока элементов.<br/>
+     * Т.к. массив не отсортирован, то можно поменять местами последний элемент с удаляемым.<br/>
+     * И затем удалить последний элемент.
+     */
     public void removeElement(int index) {
-        int lastElementIndex = newElementIndex - 1;
-        if (index == lastElementIndex) {
-            elementData[index] = null;
+        if (numberOfElements == 0) {
+            throw new EmptyArrayException();
+        } else if (index < 0 || index >= newElementIndex) {
+            throw new IndexOutOfBoundsException();
         } else {
-            elementData[index] = elementData[lastElementIndex];
-            elementData[lastElementIndex] = null;
+            int lastElementIndex = newElementIndex - 1;
+            if (index == lastElementIndex) {
+                elementData[index] = null;
+            } else {
+                elementData[index] = elementData[lastElementIndex];
+                elementData[lastElementIndex] = null;
+            }
+            numberOfElements--;
+            newElementIndex--;
         }
-        numberOfElements--;
-        newElementIndex--;
     }
 
     public int getSize() {
