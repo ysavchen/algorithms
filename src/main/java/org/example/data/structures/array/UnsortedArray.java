@@ -1,6 +1,5 @@
 package org.example.data.structures.array;
 
-import org.example.data.structures.array.exception.ElementNotFoundException;
 import org.example.data.structures.array.exception.EmptyArrayException;
 import org.example.data.structures.array.exception.FullArrayException;
 
@@ -10,6 +9,8 @@ import java.util.function.Consumer;
 public class UnsortedArray<T> {
 
     private final T[] elementData;
+
+    private static final int ELEMENT_NOT_FOUND = -1;
 
     private int numberOfElements = 0;
 
@@ -44,7 +45,7 @@ public class UnsortedArray<T> {
                 return index;
             }
         }
-        throw new ElementNotFoundException();
+        return ELEMENT_NOT_FOUND;
     }
 
     public void traverse(Consumer<T> consumer) {

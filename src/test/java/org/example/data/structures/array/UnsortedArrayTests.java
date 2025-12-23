@@ -71,6 +71,12 @@ public class UnsortedArrayTests {
     }
 
     @Test
+    void findNonExistingElement() {
+        var array = new UnsortedArray<String>(1);
+        assertEquals(-1, array.findElement("Anna"));
+    }
+
+    @Test
     void addElement() {
         var array = new UnsortedArray<String>(1);
         array.addElement("Anna");
