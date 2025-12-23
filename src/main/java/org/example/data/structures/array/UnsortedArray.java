@@ -30,14 +30,6 @@ public class UnsortedArray<T> {
         return elementData[index];
     }
 
-    public T getMaxElement() {
-        throw new RuntimeException();
-    }
-
-    public T getMinElement() {
-        throw new RuntimeException();
-    }
-
     public int findElement(T element) {
         for (int index = 0; index < elementData.length; index++) {
             var arrayElement = elementData[index];

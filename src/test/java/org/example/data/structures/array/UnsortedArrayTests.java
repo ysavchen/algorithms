@@ -47,16 +47,6 @@ public class UnsortedArrayTests {
     }
 
     @Test
-    void getMaxElement() {
-
-    }
-
-    @Test
-    void getMinElement() {
-
-    }
-
-    @Test
     void findElement() {
         var array = new UnsortedArray<String>(1);
         array.addElement("Anna");
