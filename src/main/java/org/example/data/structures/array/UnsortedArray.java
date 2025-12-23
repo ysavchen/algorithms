@@ -40,7 +40,7 @@ public class UnsortedArray<T> {
     public int findElement(T element) {
         for (int index = 0; index < elementData.length; index++) {
             var arrayElement = elementData[index];
-            if (elementData[index].equals(element)) {
+            if (arrayElement == null ? element == null : elementData[index].equals(element)) {
                 return index;
             }
         }

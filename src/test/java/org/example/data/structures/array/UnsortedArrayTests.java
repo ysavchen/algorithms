@@ -36,12 +36,14 @@ public class UnsortedArrayTests {
 
     @Test
     void getElementByNegativeIndex() {
-
+        var array = new UnsortedArray<String>(1);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.getElement(-1));
     }
 
     @Test
     void getElementOutOfBounds() {
-
+        var array = new UnsortedArray<String>(1);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.getElement(1));
     }
 
     @Test
@@ -56,12 +58,16 @@ public class UnsortedArrayTests {
 
     @Test
     void findElement() {
-
+        var array = new UnsortedArray<String>(1);
+        array.addElement("Anna");
+        assertEquals(0, array.findElement("Anna"));
     }
 
     @Test
     void findNullElement() {
-
+        var array = new UnsortedArray<String>(2);
+        array.addElement("Anna");
+        assertEquals(1, array.findElement(null));
     }
 
     @Test
