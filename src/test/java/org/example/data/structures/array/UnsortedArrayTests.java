@@ -16,7 +16,7 @@ public class UnsortedArrayTests {
     }
 
     @Test
-    void createNegativeArray() {
+    void createArrayWithNegativeSize() {
         assertThrows(IllegalArgumentException.class, () -> new UnsortedArray<String>(-1));
     }
 
