@@ -1,6 +1,6 @@
 package org.example.data.structures.array;
 
-public class ArrayMain {
+public class Main {
 
     public static void main(String[] args) {
         var array = new UnsortedArray<String>(3);
