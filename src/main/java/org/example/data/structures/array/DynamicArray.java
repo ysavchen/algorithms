@@ -1,7 +1,7 @@
 package org.example.data.structures.array;
 
 /**
- * Динамический несортированный массив
+ * Несортированный динамический массив
  */
 public class DynamicArray<T> {
 }
