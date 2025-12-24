@@ -7,6 +7,6 @@ public class ArrayMain {
         array.addElement("Anna");
         array.addElement("Maria");
         array.addElement("Elena");
-        System.out.println(array.getNumberOfElements());
+        array.traverse(System.out::println);
     }
 }
