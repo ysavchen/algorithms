@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * Несортированный статический массив
+ * Статический несортированный массив
  */
 public class UnsortedArray<T> {
 

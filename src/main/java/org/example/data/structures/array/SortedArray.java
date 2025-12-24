@@ -3,7 +3,7 @@ package org.example.data.structures.array;
 import java.util.Arrays;
 
 /**
- * Отсортированный статический массив
+ * Статический отсортированный массив
  */
 public class SortedArray<T> {
 
