@@ -4,8 +4,12 @@ import org.example.data.structures.array.exception.EmptyArrayException;
 import org.example.data.structures.array.exception.FullArrayException;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.function.Consumer;
 
+/**
+ * Несортированный статический массив
+ */
 public class UnsortedArray<T> {
 
     private final T[] elementData;
@@ -33,7 +37,7 @@ public class UnsortedArray<T> {
     public int findElement(T element) {
         for (int index = 0; index < elementData.length; index++) {
             var arrayElement = elementData[index];
-            if (arrayElement == null ? element == null : elementData[index].equals(element)) {
+            if (Objects.equals(arrayElement, element)) {
                 return index;
             }
         }
