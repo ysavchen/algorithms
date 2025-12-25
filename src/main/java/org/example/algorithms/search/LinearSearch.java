@@ -4,14 +4,14 @@ public class LinearSearch {
 
     private static final int NOT_FOUND = -1;
 
-    public static int linearSearch(int[] list, int pickedNumber) {
-        if (isEmpty(list)) {
+    public static int linearSearch(int[] array, int pickedNumber) {
+        if (isEmpty(array)) {
             return NOT_FOUND;
         }
 
-        for (int guessNumber : list) {
-            if (guessNumber == pickedNumber) {
-                return guessNumber;
+        for (int number : array) {
+            if (number == pickedNumber) {
+                return number;
             }
             sleep();
         }
