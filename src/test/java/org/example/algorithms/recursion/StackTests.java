@@ -1,7 +1,8 @@
 package org.example.algorithms.recursion;
 
-import org.example.algorithms.recursion.exception.EmptyStackException;
-import org.example.algorithms.recursion.exception.FullStackException;
+import org.example.data.structures.stack.exception.EmptyStackException;
+import org.example.data.structures.stack.exception.FullStackException;
+import org.example.data.structures.stack.Stack;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package org.example.algorithms.recursion.exception;
+package org.example.data.structures.stack.exception;
 
 public class FullStackException extends RuntimeException {
 }

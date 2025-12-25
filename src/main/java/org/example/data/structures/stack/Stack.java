@@ -1,7 +1,7 @@
-package org.example.algorithms.recursion;
+package org.example.data.structures.stack;
 
-import org.example.algorithms.recursion.exception.EmptyStackException;
-import org.example.algorithms.recursion.exception.FullStackException;
+import org.example.data.structures.stack.exception.EmptyStackException;
+import org.example.data.structures.stack.exception.FullStackException;
 
 public class Stack {
 
