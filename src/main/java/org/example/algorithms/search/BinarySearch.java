@@ -6,23 +6,23 @@ public class BinarySearch {
 
     private static final int NOT_FOUND = -1;
 
-    public static int binarySearch(int[] list, int pickedNumber) {
-        if (isEmpty(list)) {
+    public static int binarySearch(int[] array, int pickedNumber) {
+        if (isEmpty(array)) {
             return NOT_FOUND;
         }
-        Arrays.sort(list);
+        Arrays.sort(array);
 
-        int lowIndex = 0;
-        int highIndex = list.length - 1;
+        int minIndex = 0;
+        int maxIndex = array.length - 1;
 
-        while (lowIndex <= highIndex) {
-            int guessIndex = (lowIndex + highIndex) / 2;
-            int midNumber = list[guessIndex];
+        while (minIndex <= maxIndex) {
+            int midIndex = (minIndex + maxIndex) / 2;
+            int midNumber = array[midIndex];
 
             if (midNumber < pickedNumber) {
-                lowIndex = guessIndex + 1;
+                minIndex = midIndex + 1;
             } else if (midNumber > pickedNumber) {
-                highIndex = guessIndex - 1;
+                maxIndex = midIndex - 1;
             } else {
                 return midNumber;
             }
@@ -32,8 +32,8 @@ public class BinarySearch {
         return NOT_FOUND;
     }
 
-    private static boolean isEmpty(int[] list) {
-        return list.length == 0;
+    private static boolean isEmpty(int[] array) {
+        return array.length == 0;
     }
 
     private static void sleep() {
