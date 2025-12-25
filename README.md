@@ -1,3 +1,3 @@
 # data-structures
 
-Place to master algorithms and data structures
+Safe place to master algorithms and data structures
