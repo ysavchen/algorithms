@@ -22,7 +22,7 @@ public class SelectionSort {
 
     private static int findSmallest(List<Integer> list) {
         ListIterator<Integer> iterator = list.listIterator();
-        int smallest = list.get(0);
+        int smallest = list.getFirst();
 
         while (iterator.hasNext()) {
             int next = iterator.next();

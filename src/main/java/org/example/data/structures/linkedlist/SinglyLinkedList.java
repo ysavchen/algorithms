@@ -7,7 +7,31 @@ public class SinglyLinkedList<T> {
 
     private Node<T> head = null;
 
-    private class Node<T> {
+    public SinglyLinkedList() {
+    }
+
+    public void insertToFront(T data) {
+        var node = new Node<>(data);
+        if (head != null) {
+            node.appendNode(head);
+        }
+        head = node;
+    }
+
+    public void insertToBack(T data) {
+        var node = new Node<>(data);
+        if (head == null) {
+            head = node;
+        } else {
+            Node<T> currentNode = head;
+            while (currentNode.hasNextNode()) {
+                currentNode = currentNode.nextNode();
+            }
+            currentNode.appendNode(node);
+        }
+    }
+
+    private static class Node<T> {
 
         private final T data;
 
@@ -31,6 +55,10 @@ public class SinglyLinkedList<T> {
 
         void appendNode(Node<T> node) {
             nextNode = node;
+        }
+
+        public Node<T> nextNode() {
+            return nextNode;
         }
     }
 }
