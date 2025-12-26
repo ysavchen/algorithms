@@ -3,12 +3,15 @@ package org.example.data.structures.stack;
 import org.example.data.structures.stack.exception.EmptyStackException;
 import org.example.data.structures.stack.exception.FullStackException;
 
-public class Stack {
+/**
+ * Стек на основе динамического массива
+ */
+public class DynamicArrayStack {
 
     private final int[] stack;
     private int pushIndex;
 
-    public Stack(int size) {
+    public DynamicArrayStack(int size) {
         this.stack = new int[size];
     }
 
