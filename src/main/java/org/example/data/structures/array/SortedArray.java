@@ -43,6 +43,9 @@ public class SortedArray<T extends Comparable<T>> {
         return ELEMENT_NOT_FOUND;
     }
 
+    /**
+     * При добавлении нового элемента в массив, находим правильную позицию для вставки, чтобы не нарушался порядок сортировки.
+     */
     public void addElement(T element) {
         if (elementData.length == numberOfElements) {
             throw new FullArrayException();
@@ -64,7 +67,6 @@ public class SortedArray<T extends Comparable<T>> {
             }
         }
 
-        elementData[emptyCellIndex] = element;
         emptyCellIndex++;
         numberOfElements++;
     }
