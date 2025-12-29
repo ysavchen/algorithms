@@ -54,7 +54,7 @@ public class SortedArray<T extends Comparable<T>> {
         if (emptyCellIndex == 0) { // array is empty
             elementData[emptyCellIndex] = element;
         } else {
-            for (int i = emptyCellIndex; i >= 0; i--) {
+            for (int i = emptyCellIndex; i > 0; i--) {
                 var prevElement = elementData[i - 1];
                 int result = element.compareTo(prevElement);
                 if (result < 0) { // prevElement is greater than element
@@ -62,7 +62,6 @@ public class SortedArray<T extends Comparable<T>> {
                     elementData[i - 1] = element;
                 } else {
                     elementData[i] = element;
-                    return;
                 }
             }
         }
