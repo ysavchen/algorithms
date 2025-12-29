@@ -16,9 +16,9 @@ public class UnsortedArray<T> {
 
     private static final int ELEMENT_NOT_FOUND = -1;
 
-    private int numberOfElements = 0;
-
     private int newElementIndex = 0;
+
+    private int numberOfElements = 0;
 
     public UnsortedArray(int size) {
         if (size <= 0) {

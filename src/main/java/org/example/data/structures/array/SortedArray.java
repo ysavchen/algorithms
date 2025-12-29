@@ -1,5 +1,6 @@
 package org.example.data.structures.array;
 
+import org.example.data.structures.array.exception.EmptyArrayException;
 import org.example.data.structures.array.exception.FullArrayException;
 
 import java.util.Arrays;
@@ -14,9 +15,9 @@ public class SortedArray<T extends Comparable<T>> {
 
     private static final int ELEMENT_NOT_FOUND = -1;
 
-    private int numberOfElements = 0;
-
     private int emptyCellIndex = 0;
+
+    private int numberOfElements = 0;
 
     public SortedArray(int size) {
         if (size <= 0) {
@@ -72,8 +73,30 @@ public class SortedArray<T extends Comparable<T>> {
         numberOfElements++;
     }
 
-    public void removeByIndex(int index) {
-
+    /**
+     * В отсортированных массивах элементы часто сдвигаются для поддержания порядка сортировки,
+     * поэтому при удалении элемента мы ищем элемент не по индексу, а по значению.
+     */
+    //todo: to delete by value
+    public void removeElement(int index) {
+        if (numberOfElements == 0) {
+            throw new EmptyArrayException();
+        } else if (index < 0 || index >= emptyCellIndex) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            int lastElementIndex = emptyCellIndex - 1;
+            if (index == lastElementIndex) {
+                elementData[index] = null;
+            } else {
+                for (int i = index; i < lastElementIndex; i++) {
+                    var nextElement = elementData[i + 1];
+                    elementData[i] = nextElement;
+                }
+                elementData[lastElementIndex] = null;
+            }
+            emptyCellIndex--;
+            numberOfElements--;
+        }
     }
 
     public int getSize() {
