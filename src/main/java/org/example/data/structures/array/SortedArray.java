@@ -54,10 +54,11 @@ public class SortedArray<T extends Comparable<T>> {
         if (emptyCellIndex == 0) { // array is empty
             elementData[emptyCellIndex] = element;
         } else {
+            // обходим массив, начиная с последнего элемента, и сравниваем вставляемый элемент с предыдущим
             for (int i = emptyCellIndex; i > 0; i--) {
                 var prevElement = elementData[i - 1];
                 int result = element.compareTo(prevElement);
-                if (result < 0) { // prevElement is greater than element
+                if (result < 0) {  // prevElement is greater than element
                     elementData[i] = prevElement;
                     elementData[i - 1] = element;
                 } else {
