@@ -55,8 +55,8 @@ public class UnsortedArray<T> {
             throw new FullArrayException();
         }
         elementData[newElementIndex] = element;
-        numberOfElements++;
         newElementIndex++;
+        numberOfElements++;
     }
 
     /**
@@ -78,8 +78,8 @@ public class UnsortedArray<T> {
                 elementData[index] = elementData[lastElementIndex];
                 elementData[lastElementIndex] = null;
             }
-            numberOfElements--;
             newElementIndex--;
+            numberOfElements--;
         }
     }
 
