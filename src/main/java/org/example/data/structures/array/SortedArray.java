@@ -77,26 +77,25 @@ public class SortedArray<T extends Comparable<T>> {
      * В отсортированных массивах элементы часто сдвигаются для поддержания порядка сортировки,
      * поэтому при удалении элемента мы ищем элемент не по индексу, а по значению.
      */
-    //todo: to delete by value
-    public void removeElement(int index) {
+    public void removeElement(T element) {
         if (numberOfElements == 0) {
             throw new EmptyArrayException();
-        } else if (index < 0 || index >= emptyCellIndex) {
-            throw new IndexOutOfBoundsException();
-        } else {
-            int lastElementIndex = emptyCellIndex - 1;
-            if (index == lastElementIndex) {
-                elementData[index] = null;
-            } else {
-                for (int i = index; i < lastElementIndex; i++) {
-                    var nextElement = elementData[i + 1];
-                    elementData[i] = nextElement;
-                }
-                elementData[lastElementIndex] = null;
-            }
-            emptyCellIndex--;
-            numberOfElements--;
         }
+        int index = findElement(element);
+        int lastElementIndex = emptyCellIndex - 1;
+        
+        if (index == lastElementIndex) {
+            elementData[index] = null;
+        } else {
+            for (int i = index; i < lastElementIndex; i++) {
+                var nextElement = elementData[i + 1];
+                elementData[i] = nextElement;
+            }
+            elementData[lastElementIndex] = null;
+        }
+
+        emptyCellIndex--;
+        numberOfElements--;
     }
 
     public int getSize() {
