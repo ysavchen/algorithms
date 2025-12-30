@@ -4,7 +4,6 @@ import org.example.data.structures.array.exception.EmptyArrayException;
 import org.example.data.structures.array.exception.FullArrayException;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * Отсортированный статический массив
@@ -34,13 +33,22 @@ public class SortedArray<T extends Comparable<T>> {
     }
 
     public int findElement(T element) {
-        //todo: update as an array is sorted
-        for (int index = 0; index < elementData.length; index++) {
-            var arrayElement = elementData[index];
-            if (Objects.equals(arrayElement, element)) {
-                return index;
+        int leftIndex = 0;
+        int rightIndex = elementData.length - 1;
+
+        while (leftIndex <= rightIndex) {
+            int midIndex = rightIndex / 2;
+            var midElement = elementData[midIndex];
+            int result = element.compareTo(midElement);
+            if (result == 0) {         // element equals midElement
+                return midIndex;
+            } else if (result < 0) {   // element is less than midElement
+                rightIndex = midIndex - 1;
+            } else {                   // element is greater than midElement
+                leftIndex = midIndex + 1;
             }
         }
+
         return ELEMENT_NOT_FOUND;
     }
 
@@ -59,7 +67,7 @@ public class SortedArray<T extends Comparable<T>> {
             for (int i = emptyCellIndex; i > 0; i--) {
                 var prevElement = elementData[i - 1];
                 int result = element.compareTo(prevElement);
-                if (result < 0) {  // prevElement is greater than element
+                if (result < 0) {  // element is less than prevElement
                     elementData[i] = prevElement;
                     elementData[i - 1] = element;
                 } else {
