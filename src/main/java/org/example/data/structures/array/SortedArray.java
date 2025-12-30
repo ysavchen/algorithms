@@ -32,10 +32,16 @@ public class SortedArray<T extends Comparable<T>> {
         return elementData[index];
     }
 
+    /**
+     * Так как массив отсортирован, можем использовать бинарный поиск.
+     */
     public int findElement(T element) {
+        if (elementData.length == 0) {
+            return ELEMENT_NOT_FOUND;
+        }
+
         int leftIndex = 0;
         int rightIndex = elementData.length - 1;
-
         while (leftIndex <= rightIndex) {
             int midIndex = rightIndex / 2;
             var midElement = elementData[midIndex];
@@ -89,9 +95,9 @@ public class SortedArray<T extends Comparable<T>> {
         if (numberOfElements == 0) {
             throw new EmptyArrayException();
         }
+
         int index = findElement(element);
         int lastElementIndex = emptyCellIndex - 1;
-
         if (index == -1) {
             // element not found
             return;
