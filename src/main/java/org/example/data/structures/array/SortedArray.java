@@ -83,7 +83,7 @@ public class SortedArray<T extends Comparable<T>> {
         }
         int index = findElement(element);
         int lastElementIndex = emptyCellIndex - 1;
-        
+
         if (index == lastElementIndex) {
             elementData[index] = null;
         } else {
