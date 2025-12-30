@@ -84,7 +84,10 @@ public class SortedArray<T extends Comparable<T>> {
         int index = findElement(element);
         int lastElementIndex = emptyCellIndex - 1;
 
-        if (index == lastElementIndex) {
+        if (index == -1) {
+            // element not found
+            return;
+        } else if (index == lastElementIndex) {
             elementData[index] = null;
         } else {
             for (int i = index; i < lastElementIndex; i++) {
