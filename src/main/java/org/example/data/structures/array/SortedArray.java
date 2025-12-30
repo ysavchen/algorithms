@@ -43,7 +43,7 @@ public class SortedArray<T extends Comparable<T>> {
         int leftIndex = 0;
         int rightIndex = elementData.length - 1;
         while (leftIndex <= rightIndex) {
-            int midIndex = rightIndex / 2;
+            int midIndex = (leftIndex + rightIndex) / 2;
             var midElement = elementData[midIndex];
             int result = element.compareTo(midElement);
             if (result == 0) {         // element equals midElement
