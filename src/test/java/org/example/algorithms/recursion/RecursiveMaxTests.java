@@ -1,4 +1,4 @@
-package org.example.algorithms.quicksort;
+package org.example.algorithms.recursion;
 
 import org.junit.jupiter.api.Test;
 

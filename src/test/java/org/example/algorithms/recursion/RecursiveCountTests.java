@@ -1,10 +1,10 @@
-package org.example.algorithms.quicksort;
+package org.example.algorithms.recursion;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CountCountTests {
+public class RecursiveCountTests {
 
     @Test
     void recursiveCount() {
