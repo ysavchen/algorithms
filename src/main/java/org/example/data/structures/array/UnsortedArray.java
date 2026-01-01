@@ -44,6 +44,9 @@ public class UnsortedArray<T> {
         return ELEMENT_NOT_FOUND;
     }
 
+    /**
+     * Обход массива и выполнение операции с каждым элементом
+     */
     public void traverse(Consumer<T> consumer) {
         for (T element : elementData) {
             consumer.accept(element);

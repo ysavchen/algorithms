@@ -32,6 +32,23 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    private NodeSearchResult<T> searchNode(T data) {
+        Node<T> parentNode = null;
+        Node<T> node = root;
+        while (node != null) {
+            if (data.equals(node.data)) {
+                return new NodeSearchResult<>(parentNode, node);
+            } else if (data.compareTo(node.data) < 0) {
+                parentNode = node;
+                node = node.left;
+            } else {
+                parentNode = node;
+                node = node.right;
+            }
+        }
+        return null;
+    }
+
     private static class Node<T> {
 
         private final T data;
@@ -40,6 +57,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         Node(T data) {
             this.data = data;
+        }
+    }
+
+    private static class NodeSearchResult<T> {
+        private final Node<T> parentNode;
+        private final Node<T> node;
+
+        NodeSearchResult(Node<T> parentNode, Node<T> node) {
+            this.parentNode = parentNode;
+            this.node = node;
         }
     }
 }
