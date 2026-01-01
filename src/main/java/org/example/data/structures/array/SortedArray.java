@@ -91,7 +91,7 @@ public class SortedArray<T extends Comparable<T>> {
      * В отсортированных массивах элементы часто сдвигаются для поддержания порядка сортировки,
      * поэтому при удалении элемента мы ищем элемент не по индексу, а по значению.
      */
-    public void removeElement(T element) {
+    public void deleteElement(T element) {
         if (numberOfElements == 0) {
             throw new EmptyArrayException();
         }

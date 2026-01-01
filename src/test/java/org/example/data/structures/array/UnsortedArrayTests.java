@@ -83,20 +83,20 @@ public class UnsortedArrayTests {
     }
 
     @Test
-    void removeElement() {
+    void deleteElement() {
         var array = new UnsortedArray<String>(1);
         array.addElement("Anna");
         assertEquals(1, array.getSize());
         assertEquals(1, array.getNumberOfElements());
 
-        array.removeByIndex(0);
+        array.deleteByIndex(0);
         assertEquals(1, array.getSize());
         assertEquals(0, array.getNumberOfElements());
     }
 
     @Test
-    void removeElementFromEmptyArray() {
+    void deleteElementFromEmptyArray() {
         var array = new UnsortedArray<String>(5);
-        assertThrows(EmptyArrayException.class, () -> array.removeByIndex(0));
+        assertThrows(EmptyArrayException.class, () -> array.deleteByIndex(0));
     }
 }

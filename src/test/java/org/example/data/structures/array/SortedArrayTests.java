@@ -86,21 +86,21 @@ public class SortedArrayTests {
     }
 
     @Test
-    void removeElement() {
+    void deleteElement() {
         var array = new SortedArray<String>(1);
         var element = "Anna";
         array.addElement(element);
         assertEquals(1, array.getSize());
         assertEquals(1, array.getNumberOfElements());
 
-        array.removeElement(element);
+        array.deleteElement(element);
         assertEquals(1, array.getSize());
         assertEquals(0, array.getNumberOfElements());
     }
 
     @Test
-    void removeElementFromEmptyArray() {
+    void deleteElementFromEmptyArray() {
         var array = new SortedArray<String>(5);
-        assertThrows(EmptyArrayException.class, () -> array.removeElement("Anna"));
+        assertThrows(EmptyArrayException.class, () -> array.deleteElement("Anna"));
     }
 }

@@ -1,5 +1,7 @@
 package org.example.data.structures.tree;
 
+import java.util.function.Consumer;
+
 /**
  * Двоичное дерево поиска
  */
@@ -30,6 +32,17 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 }
             }
         }
+    }
+
+    /**
+     * Обход двоичного дерева и выполнение операции с каждым элементом
+     */
+    public void traverse(Consumer<T> consumer) {
+
+    }
+
+    public void delete(T data) {
+
     }
 
     private NodeSearchResult<T> searchNode(T data) {
