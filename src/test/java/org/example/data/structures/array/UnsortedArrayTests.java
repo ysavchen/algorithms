@@ -49,8 +49,9 @@ public class UnsortedArrayTests {
     @Test
     void findElement() {
         var array = new UnsortedArray<String>(1);
-        array.addElement("Anna");
-        assertEquals(0, array.findElement("Anna"));
+        var element = "Anna";
+        array.addElement(element);
+        assertEquals(0, array.findElement(element));
     }
 
     @Test
