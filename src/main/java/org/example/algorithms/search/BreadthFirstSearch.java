@@ -1,4 +1,4 @@
-package org.example.algorithms.bfs;
+package org.example.algorithms.search;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
