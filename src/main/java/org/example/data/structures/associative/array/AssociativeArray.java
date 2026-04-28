@@ -70,6 +70,11 @@ public class AssociativeArray<K, V> implements Map<K, V> {
     }
 
     @Override
+    public boolean delete(K key) {
+        return true;
+    }
+
+    @Override
     public boolean contains(V value) {
         for (Pair<K, V> pair : pairs) {
             if (pair == null) {
