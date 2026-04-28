@@ -6,6 +6,8 @@ public interface Map<K, V> {
 
     boolean set(K key, V value);
 
+    boolean delete(K key);
+
     boolean contains(V value);
 
     boolean isEmpty();

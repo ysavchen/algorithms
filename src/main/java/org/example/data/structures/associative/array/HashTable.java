@@ -21,6 +21,9 @@ public class HashTable<K, V> implements Map<K, V> {
         }
     }
 
+    private record SearchResult<K, V>(Node<K, V> current, Node<K, V> previous) {
+    }
+
     /**
      * Массив содержит бакеты, каждый бакет содержит список элементов.
      * <pre>{@code
@@ -65,20 +68,17 @@ public class HashTable<K, V> implements Map<K, V> {
     @Override
     public V get(K key) {
         int index = bucket(key.hashCode());
-        Node<K, V> current = nodes[index];
-        Node<K, V> previous = null;
 
-        while (current != null) {
-            if (current.key.equals(key)) {
-                if (previous != null) {
-                    previous.next = current.next;
-                    current.next = nodes[index];
-                    nodes[index] = current;
-                }
-                return current.value;
+        var result = search(key);
+        if (result != null) {
+            var current = result.current;
+            var previous = result.previous;
+            if (previous != null) {
+                previous.next = current.next;
+                current.next = nodes[index];
+                nodes[index] = current;
             }
-            previous = current;
-            current = current.next;
+            return current.value;
         }
 
         return null;
@@ -91,9 +91,9 @@ public class HashTable<K, V> implements Map<K, V> {
         }
 
         // если существует узел с таким ключом, то заменяем value
-        var node = search(key);
-        if (node != null) {
-            node.value = value;
+        var result = search(key);
+        if (result != null) {
+            result.current.value = value;
             return true;
         }
 
@@ -110,13 +110,34 @@ public class HashTable<K, V> implements Map<K, V> {
         return true;
     }
 
-    private Node<K, V> search(K key) {
-        var current = nodes[bucket(key.hashCode())];
+    @Override
+    public boolean delete(K key) {
+        int index = bucket(key.hashCode());
+
+        var result = search(key);
+        if (result != null) {
+            if (result.previous != null) {
+                result.previous.next = result.current.next;
+            } else {
+                nodes[index] = null;
+            }
+            size--;
+            return true;
+        }
+
+        return false;
+    }
+
+    private SearchResult<K, V> search(K key) {
+        int index = bucket(key.hashCode());
+        Node<K, V> current = nodes[index];
+        Node<K, V> previous = null;
 
         while (current != null) {
             if (current.key.equals(key)) {
-                return current;
+                return new SearchResult<>(current, previous);
             }
+            previous = current;
             current = current.next;
         }
         return null;
