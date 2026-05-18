@@ -54,4 +54,26 @@ public class AssociativeArrayTests {
         assertTrue(array.contains("Anna"));
         assertFalse(array.contains("Maria"));
     }
+
+    @Test
+    void deleteValue() {
+        var array = new AssociativeArray<String, String>();
+        array.set("first", "Anna");
+        assertTrue(array.delete("first"));
+    }
+
+    @Test
+    void deleteFirstValue() {
+        var array = new AssociativeArray<String, String>();
+        array.set("first", "Anna");
+        array.set("second", "Maria");
+        assertTrue(array.delete("first"));
+    }
+
+    @Test
+    void deleteValueByNonExistingKey() {
+        var array = new AssociativeArray<String, String>();
+        array.set("first", "Anna");
+        assertFalse(array.delete("second"));
+    }
 }
