@@ -71,7 +71,26 @@ public class AssociativeArray<K, V> implements Map<K, V> {
 
     @Override
     public boolean delete(K key) {
-        return true;
+        int index = 0;
+        for (Pair<K, V> pair : pairs) {
+            if (pair == null) {
+                break;
+            }
+
+            if (Objects.equals(pair.key, key)) {
+                int lastElementIndex = size - 1;
+                if (index == lastElementIndex) {
+                    pairs[index] = null;
+                } else {
+                    pairs[index] = pairs[lastElementIndex];
+                    pairs[lastElementIndex] = null;
+                }
+                size--;
+                return true;
+            }
+            index++;
+        }
+        return false;
     }
 
     @Override
