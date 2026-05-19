@@ -36,22 +36,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public void insert(T data) {
-        var currentNode = root;
-        if (currentNode == null) {
+        var current = root;
+        if (current == null) {
             root = new Node<>(data);
         } else {
-            while (currentNode != null) {
-                if (data.compareTo(currentNode.data) <= 0) {
-                    if (currentNode.left == null) {
-                        currentNode.left = new Node<>(data);
+            while (current != null) {
+                if (data.compareTo(current.data) <= 0) {
+                    if (current.left == null) {
+                        current.left = new Node<>(data);
                         break;
                     } else {
-                        currentNode = currentNode.left;
+                        current = current.left;
                     }
-                } else if (currentNode.right == null) {
-                    currentNode.right = new Node<>(data);
+                } else if (current.right == null) {
+                    current.right = new Node<>(data);
                 } else {
-                    currentNode = currentNode.right;
+                    current = current.right;
                 }
             }
         }
@@ -61,19 +61,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * Обход двоичного дерева и выполнение операции с каждым элементом
      */
     public void traverse(Consumer<T> consumer) {
-        Node<T> currentNode = root;
+        Node<T> current = root;
         Stack<Node<T>> stack = new DynamicArrayStack<>();
-        while (currentNode != null || !stack.isEmpty()) {
-            if (currentNode == null) {
-                currentNode = stack.pop();
+        while (current != null || !stack.isEmpty()) {
+            if (current == null) {
+                current = stack.pop();
                 //todo: implement
-                currentNode = currentNode.right;
+                current = current.right;
             } else {
-                while (currentNode.left != null) {
-                    stack.push(currentNode);
-                    currentNode = currentNode.left;
+                while (current.left != null) {
+                    stack.push(current);
+                    current = current.left;
                     //todo: implement
-                    currentNode = currentNode.right;
+                    current = current.right;
                 }
             }
         }
@@ -84,17 +84,17 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private NodeSearchResult<T> searchNode(T data) {
-        Node<T> parentNode = null;
-        Node<T> currentNode = root;
-        while (currentNode != null) {
-            if (data.equals(currentNode.data)) {
-                return new NodeSearchResult<>(parentNode, currentNode);
-            } else if (data.compareTo(currentNode.data) < 0) {
-                parentNode = currentNode;
-                currentNode = currentNode.left;
+        Node<T> parent = null;
+        Node<T> current = root;
+        while (current != null) {
+            if (data.equals(current.data)) {
+                return new NodeSearchResult<>(parent, current);
+            } else if (data.compareTo(current.data) < 0) {
+                parent = current;
+                current = current.left;
             } else {
-                parentNode = currentNode;
-                currentNode = currentNode.right;
+                parent = current;
+                current = current.right;
             }
         }
         return null;
