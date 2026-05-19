@@ -27,6 +27,9 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * Центрированный обход (left-middle-right traversal)
+     */
     private static void printLMR(Node node) {
         if (node.left != null) {
             printLMR(node.left);
