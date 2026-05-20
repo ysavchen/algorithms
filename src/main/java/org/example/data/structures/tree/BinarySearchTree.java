@@ -11,12 +11,12 @@ import java.util.function.Consumer;
 public class BinarySearchTree<T extends Comparable<T>> {
 
     private static class Node<T> {
-        private final T data;
+        private final T value;
         private Node<T> left = null;
         private Node<T> right = null;
 
-        Node(T data) {
-            this.data = data;
+        Node(T value) {
+            this.value = value;
         }
     }
 
@@ -35,21 +35,21 @@ public class BinarySearchTree<T extends Comparable<T>> {
     public BinarySearchTree() {
     }
 
-    public void insert(T data) {
+    public void insert(T value) {
         var current = root;
         if (current == null) {
-            root = new Node<>(data);
+            root = new Node<>(value);
         } else {
             while (current != null) {
-                if (data.compareTo(current.data) <= 0) {
+                if (value.compareTo(current.value) <= 0) {
                     if (current.left == null) {
-                        current.left = new Node<>(data);
+                        current.left = new Node<>(value);
                         break;
                     } else {
                         current = current.left;
                     }
                 } else if (current.right == null) {
-                    current.right = new Node<>(data);
+                    current.right = new Node<>(value);
                 } else {
                     current = current.right;
                 }
@@ -79,17 +79,17 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    public void delete(T data) {
+    public void delete(T value) {
         //todo: implement
     }
 
-    private NodeSearchResult<T> searchNode(T data) {
+    private NodeSearchResult<T> searchNode(T value) {
         Node<T> parent = null;
         Node<T> current = root;
         while (current != null) {
-            if (data.equals(current.data)) {
+            if (value.equals(current.value)) {
                 return new NodeSearchResult<>(parent, current);
-            } else if (data.compareTo(current.data) < 0) {
+            } else if (value.compareTo(current.value) < 0) {
                 parent = current;
                 current = current.left;
             } else {
