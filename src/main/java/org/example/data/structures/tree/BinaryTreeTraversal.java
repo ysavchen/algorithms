@@ -47,11 +47,11 @@ public class BinaryTreeTraversal {
      */
     private static void printRML(Node node) {
         if (node.right != null) {
-            printLMR(node.right);
+            printRML(node.right);
         }
         System.out.println(node.value);
         if (node.left != null) {
-            printLMR(node.left);
+            printRML(node.left);
         }
     }
 
