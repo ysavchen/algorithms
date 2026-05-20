@@ -1,6 +1,6 @@
 package org.example.data.structures.tree;
 
-public class BinaryTree {
+public class BinaryTreeTraversal {
 
     private static class Node {
 
@@ -28,7 +28,8 @@ public class BinaryTree {
     }
 
     /**
-     * Центрированный обход (left-middle-right traversal)
+     * Центрированный обход (left-middle-right traversal)<br/>
+     * При обходе LMR элементы будут отсортированы по возрастанию.
      */
     private static void printLMR(Node node) {
         if (node.left != null) {
@@ -37,6 +38,20 @@ public class BinaryTree {
         System.out.println(node.value);
         if (node.right != null) {
             printLMR(node.right);
+        }
+    }
+
+    /**
+     * Центрированный обход (right-middle-left traversal)<br/>
+     * При обходе RML элементы будут отсортированы по убыванию.
+     */
+    private static void printRML(Node node) {
+        if (node.right != null) {
+            printLMR(node.right);
+        }
+        System.out.println(node.value);
+        if (node.left != null) {
+            printLMR(node.left);
         }
     }
 
