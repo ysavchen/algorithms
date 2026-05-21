@@ -28,6 +28,7 @@ public class BinaryTreeTraversal {
 
     /**
      * Центрированный обход (left-middle-right traversal)<br/>
+     * Центрированный обход используется только для бинарных деревьев.<br/>
      * При обходе LMR элементы будут отсортированы по возрастанию.
      */
     private static void printLMR(Node node) {
@@ -42,6 +43,7 @@ public class BinaryTreeTraversal {
 
     /**
      * Центрированный обход (right-middle-left traversal)<br/>
+     * Центрированный обход используется только для бинарных деревьев.<br/>
      * При обходе RML элементы будут отсортированы по убыванию.
      */
     private static void printRML(Node node) {
