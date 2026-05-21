@@ -6,7 +6,6 @@ package org.example.data.structures.tree;
 public class BalancedSearchTree {
 
     private static class Node {
-
         private final int value;
         private int height = 1;
 

@@ -3,7 +3,6 @@ package org.example.data.structures.tree;
 public class BinaryTreeTraversal {
 
     private static class Node {
-
         private final int value;
         private Node left = null;
         private Node right = null;
