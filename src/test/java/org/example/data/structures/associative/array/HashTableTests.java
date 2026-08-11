@@ -48,11 +48,14 @@ public class HashTableTests {
 
     @Test
     void getElement() {
-
+        var table = new HashTable<String, String>();
+        table.set("first", "Anna");
+        assertEquals("Anna", table.get("first"));
     }
 
     @Test
     void getElementByNonExistingKey() {
-
+        var table = new HashTable<String, String>();
+        assertNull(table.get("first"));
     }
 }
